@@ -2,6 +2,8 @@
 #
 class LessonView extends Backbone.View
 
+  el: $("#content")
+  
   initialize: ( options ) ->
     @lesson = options.model
 

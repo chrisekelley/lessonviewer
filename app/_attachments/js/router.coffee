@@ -442,13 +442,14 @@ class Router extends Backbone.Router
   lesson: (subject, week, day) ->
     lesson = new LessonCollection
 #      "_id" : id
-    lesson.db['keys'] = [subject, week, day]
+    lesson.db['keys'] = [[subject, week, day]]
 #    lesson.db.key = [subject, week, day]
 #    key : [studentId,subtestId]
     lesson.fetch
       success : ( model ) ->
-        console.log JSON.stringify model
-        view = new LessonView model: model
+        console.log "model: " + JSON.stringify model
+        return if model.length == 0
+        view = new LessonView model: model.models[0]
         vm.show view
 
   editId: (id) ->

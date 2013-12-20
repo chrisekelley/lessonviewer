@@ -1,3 +1,3 @@
 (doc) ->
 
-  emit doc.id, doc if doc.subject + doc.week + doc.day
+  emit [doc.subject, doc.week, doc.day], doc if doc.subject and doc.week and doc.day
