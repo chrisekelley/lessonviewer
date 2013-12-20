@@ -81,19 +81,14 @@ Edit USERNAME and PASSWORD
 ##### 8. Deploy the tangerine source code to your local CouchDB
 Go to the Tangerine directory that you just cloned into and push:
 
-    cd lessonviewer
+    cd lessonviewer/app
     couchapp push
 
 (TODO: may need to deal with .couchapprc and .couchappignore)
 
 Check that it is working by going to <http://localhost:5984/lessonviewer>.
 
-The app won't work yet, but you're close. Skip to the next step - Setup auto pushing
-
-Check that it is working by going to <http://localhost:5984/tangerine/_design/tangerine/index.html>
-
-Check that it is working by looking at the debug version at <http://localhost:5984/tangerine/_design/ojai/index-dev.html>.
-The deploy version - with a minimised app.js - is at  <http://localhost:5984/tangerine/_design/tangerine/index.html>
+The app probably won't work yet, but you're close. Skip to the next step - Setup auto pushing
 
 If not check for error message from your couchapp push command. You can also look at the couchdb log file.
 
@@ -102,11 +97,24 @@ From the Tangerine directory run:
 
     watchr file.watchr
 
-watchr will watch all files in your Tangerine directory. When they change it will compile any coffeescript that has been updated and then push the changes to the couchdb.
+watchr will watch all files in your Tangerine directory. When they change it will compile any coffeescript that has been
+updated and then push the changes to the couchdb.
 
-##### 10. Deploy again the tangerine source code to your local CouchDB
+##### 10. Sync the code from lessonplanner couch:
 
-couchapp push
+
+    curl -X POST http://admin:admin@localhost:5984/_replicate -d '{"source":"http://admin:admin@localhost:5984/lessonplanner","target":"lessonviewer"}' -H "Content-type: application/json"
+
+
+##### 11. Deploy again the tangerine source code to your local CouchDB
+
+    couchapp push
+
+##### 12. View the app
+
+<http://localhost:5984/lessonviewer/_design/lessonviewer/index-dev.html>
+
+The minimised version is at index.html.
 
 #### Getting Started - Windows (TODO)
 
