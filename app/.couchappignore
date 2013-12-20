@@ -1,0 +1,10 @@
+[
+  ".*coffee$",
+  ".*map$",
+  ".*\\.min\\.js$",
+  "docs.*",
+  ".*\\.DS_Store$",
+  ".*listen.rb$",
+  ".*couchapprc\\.sample$",
+  ".*\\.gitignore$"
+]
