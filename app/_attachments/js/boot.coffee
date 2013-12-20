@@ -267,12 +267,12 @@ Tangerine.load = (functions) ->
   doStep()
 
 Tangerine.load [
-    Tangerine.bootSequence.pouchCheck
+#    Tangerine.bootSequence.pouchCheck
     Tangerine.bootSequence.getConfiguration
     Tangerine.bootSequence.getSettings
     Tangerine.bootSequence.getTemplates
-    Tangerine.bootSequence.ensureAdmin
-    Tangerine.bootSequence.transitionUsers
+#    Tangerine.bootSequence.ensureAdmin
+#    Tangerine.bootSequence.transitionUsers
     Tangerine.bootSequence.startApp
   ]
 

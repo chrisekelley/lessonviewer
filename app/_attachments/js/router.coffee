@@ -444,7 +444,6 @@ class Router extends Backbone.Router
 #      "_id" : id
     lesson.db['keys'] = [[subject, week, day]]
 #    lesson.db.key = [subject, week, day]
-#    key : [studentId,subtestId]
     lesson.fetch
       success : ( model ) ->
         console.log "model: " + JSON.stringify model

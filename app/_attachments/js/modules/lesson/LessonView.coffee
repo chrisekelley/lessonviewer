@@ -3,7 +3,7 @@
 class LessonView extends Backbone.View
 
   el: $("#content")
-  
+
   initialize: ( options ) ->
     @lesson = options.model
 
@@ -23,7 +23,7 @@ class LessonView extends Backbone.View
     audioUrls  = @lesson.get("audio")
 
     imageHtml = ("<img src=/lessonviewer/_design/lessonplanner/#{url}>" for url in imageUrls).join('')
-    audioHtml = ("<audio controls=’’ preload=’non’><source src=’#{url}’></audio>" for url in audioUrls).join('')
+    audioHtml = ("<audio controls=’’ preload=’non’><source src=/lessonviewer/_design/lessonplanner/#{url}></audio>" for url in audioUrls).join('')
 
     @$el.html "
     <h1>Lesson week #{week}, day #{day}</h1>
