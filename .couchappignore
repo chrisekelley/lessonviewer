@@ -8,5 +8,13 @@
   "features*",
   "log",
   "scripts",
-  ".DS_Store"
+  ".DS_Store",
+    ".*coffee$",
+    ".*map$",
+    ".*\\.min\\.js$",
+    "docs.*",
+    ".*\\.DS_Store$",
+    ".*listen.rb$",
+    ".*couchapprc\\.sample$",
+    ".*\\.gitignore$"
 ]

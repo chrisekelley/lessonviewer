@@ -175,6 +175,10 @@ jsFiles = [
 
   'modules/navigation/NavigationView.js',
 
+  'modules/lesson/Lesson.js',
+  'modules/lesson/LessonView.js',
+  'modules/lesson/LessonCollection.js',
+
   'router.js',
 
   'boot.js',

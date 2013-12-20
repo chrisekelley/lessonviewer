@@ -1,5 +1,6 @@
 class Router extends Backbone.Router
   routes:
+    'lesson/:subject/:week/:day'    : 'lesson'
     'login'    : 'login'
     'register' : 'register'
     'logout'   : 'logout'
@@ -50,7 +51,7 @@ class Router extends Backbone.Router
     # server / mobile
     'groups' : 'groups'
 
-    'assessments'        : 'assessments'
+    'assessments'        : 'lesson'
 
     'run/:id'       : 'run'
     'print/:id/:format'       : 'print'
@@ -437,6 +438,18 @@ class Router extends Backbone.Router
           complete: (options) ->
             options.users = options.tabletUsers || options.users
             vm.show new AssessmentsMenuView options
+
+  lesson: (subject, week, day) ->
+    lesson = new LessonCollection
+#      "_id" : id
+    lesson.db['keys'] = [subject, week, day]
+#    lesson.db.key = [subject, week, day]
+#    key : [studentId,subtestId]
+    lesson.fetch
+      success : ( model ) ->
+        console.log JSON.stringify model
+        view = new LessonView model: model
+        vm.show view
 
   editId: (id) ->
     id = Utils.cleanURL id
